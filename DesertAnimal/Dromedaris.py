@@ -118,10 +118,12 @@ def mainloop(squares):
     """
     start_time = datetime.datetime.now()
     openList = set()
+    library = []
     updateColsSquares(rows)
     counter = 0
     current = Node(rows)
     openList.add(current)
+    Exclusion = True
     """
     main loop
     part 2: pop node from queue,
@@ -135,10 +137,20 @@ def mainloop(squares):
     """
     while openList:
         current = openList.pop()
-        children = solverBruteForce(current.value, squares)
-        counter += 1
-        print counter
+        library.append(current)
+        # Exclusion
+        # Eclusion returns false if no new values are found resulting in
+        # Exclusion being turned off and switching to bruteForce
+        if Exclusion is True:
+            children = solverExclusion(current.value, squares)
+        # BruteForce
+        else:
+            children = solverBruteForce(current.value, squares)
         for child in children:
+            if child is False:
+                openList.add(current)
+                Exclusion = False
+                break
             x = copy.deepcopy(child)
             node = Node(x)
             node.parent = current
@@ -150,7 +162,8 @@ def mainloop(squares):
                 print "Time elapsed: " + str(elapsed.seconds) + " seconds and " + str(elapsed.microseconds) + " microseconds."
                 print "Nodes visited: ", counter
                 sys.exit()
-
+        counter += 1
+        print counter
 mainloop(squares)
 
 """
