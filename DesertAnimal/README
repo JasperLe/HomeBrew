@@ -2,3 +2,6 @@ Are Camels good at solving sudoko puzzles? The Camel uses brute force...
 Does the number of humps influence solving power? The Dromedary is faster than the Camel since it uses heuristics 
 and turns to brute force as sone as his heuristics show no results. So, one hump is faster than two humps...
 Oh, but they both use the helper file.
+
+v0.1
+Although both still make no use of squares... How 'bout that.
