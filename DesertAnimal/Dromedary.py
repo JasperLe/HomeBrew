@@ -58,15 +58,14 @@ def updateColsSquares(rows):
 check for win condition function
 """
 def winCheck(board):
-    check = 0
+    som = 0
     for i in range(len(board)):
-        if 0 not in board[i]:
-            check += 1
-            if check == 9:
-                print "FINISHED"
-                for j in board:
-                    print j
-                return True
+        som += sum(board[i])
+    if som == 405:
+        print "FINISHED"
+        for j in board:
+            print j
+        return True
 
 """
 NOT VERY EASY TO USE ATM.
@@ -90,15 +89,16 @@ creates children for each node
 repeats until complete and legal node is found
 """
 def mainloop(squares):
-    row_a = [5, 3, 0, 0, 7, 0, 0, 0, 0]
-    row_b = [6, 0, 0, 1, 9, 5, 0, 0, 0]
-    row_c = [0, 9, 8, 0, 0, 0, 0, 6, 0]
-    row_d = [8, 0, 0, 0, 6, 0, 0, 0, 3]
-    row_e = [4, 0, 0, 8, 0, 3, 0, 0, 1]
-    row_f = [7, 0, 0, 0, 2, 0, 0, 0, 6]
-    row_g = [0, 6, 0, 0, 0, 0, 2, 8, 0]
-    row_h = [0, 0, 0, 4, 1, 9, 0, 0, 5]
-    row_i = [0, 0, 0, 0, 8, 0, 0, 7, 9]
+    # moet echt sqaures updaten
+    row_a = [0, 0, 0, 0, 0, 0, 5, 0, 0]
+    row_b = [0, 0, 5, 0, 0, 0, 1, 6, 0]
+    row_c = [0, 0, 4, 7, 0, 1, 0, 0, 9]
+    row_d = [0, 0, 0, 0, 3, 0, 2, 0, 0]
+    row_e = [1, 2, 0, 8, 0, 0, 4, 5, 0]
+    row_f = [0, 9, 0, 0, 0, 0, 0, 0, 0]
+    row_g = [0, 8, 9, 6, 0, 5, 0, 0, 0]
+    row_h = [0, 4, 7, 0, 2, 0, 3, 0, 0]
+    row_i = [0, 6, 0, 0, 0, 8, 0, 0, 0]
 
     rows = [row_a, row_b, row_c, row_d, row_e, row_f, row_g, row_h, row_i]
 
@@ -150,17 +150,19 @@ def mainloop(squares):
             if child is False:
                 openList.add(current)
                 Exclusion = False
+                updateColsSquares(current.value)
+                print "SWITCHING TO BRUTE FORCE"
                 break
             x = copy.deepcopy(child)
             node = Node(x)
             node.parent = current
             openList.add(node)
-            if winCheck(node.value):
+            if winCheck(x):
                 end_time = datetime.datetime.now()
                 elapsed = end_time - start_time
                 print "Current date & time: ", start_time
                 print "Time elapsed: " + str(elapsed.seconds) + " seconds and " + str(elapsed.microseconds) + " microseconds."
-                print "Nodes visited: ", counter
+                print "Loops: ", counter
                 sys.exit()
         counter += 1
         print counter
@@ -201,4 +203,26 @@ row_f = [2, 0, 0, 5, 0, 0, 0, 0, 0]
 row_g = [7, 0, 0, 6, 0, 0, 0, 0, 0]
 row_h = [0, 8, 3, 0, 0, 0, 5, 7, 0]
 row_i = [0, 0, 0, 0, 0, 4, 0, 0, 1]
+
+option 4
+row_a = [0, 0, 0, 0, 0, 0, 7, 5, 0]
+row_b = [5, 0, 2, 4, 0, 0, 0, 6, 1]
+row_c = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+row_d = [0, 0, 0, 0, 0, 0, 0, 0, 8]
+row_e = [0, 0, 3, 2, 0, 6, 0, 0, 0]
+row_f = [1, 5, 7, 0, 0, 0, 0, 9, 0]
+row_g = [2, 0, 6, 0, 0, 7, 3, 0, 0]
+row_h = [0, 7, 1, 3, 0, 4, 8, 0, 6]
+row_i = [0, 0, 0, 0, 0, 0, 4, 0, 0]
+
+option 5
+row_a = [0, 0, 0, 0, 0, 0, 5, 0, 0]
+row_b = [0, 0, 5, 0, 0, 0, 1, 6, 0]
+row_c = [0, 0, 4, 7, 0, 1, 0, 0, 9]
+row_d = [0, 0, 0, 0, 3, 0, 2, 0, 0]
+row_e = [1, 2, 0, 8, 0, 0, 4, 5, 0]
+row_f = [0, 9, 0, 0, 0, 0, 0, 0, 0]
+row_g = [0, 8, 9, 6, 0, 5, 0, 0, 0]
+row_h = [0, 4, 7, 0, 2, 0, 3, 0, 0]
+row_i = [0, 6, 0, 0, 0, 8, 0, 0, 0]
 """

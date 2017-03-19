@@ -1,8 +1,35 @@
+"""
+NOT IN USE ATM.
+def squarer(i, j, new, squares, sq):
+    if sq is (0 or 3 or 6):
+        if j is (0 or 3 or 6):
+            squares[sq][i] = new
+        elif j is (1 or 4 or 7):
+            squares[sq][i+3] = new
+        elif j is (2 or 5 or 8):
+            squares[sq][i+6] = new
+    if sq is (1 or 4 or 7):
+        if j is (0 or 3 or 6):
+            squares[sq][i-3] = new
+        elif j is (1 or 4 or 7):
+            squares[sq][i] = new
+        elif j is (2 or 5 or 8):
+            squares[sq][i+3] = new
+    if sq is (2 or 5 or 8):
+        if j is (0 or 3 or 6):
+            squares[sq][i-6] = new
+        elif j is (1 or 4 or 7):
+            squares[sq][i-3] = new
+        elif j is (2 or 5 or 8):
+            squares[sq][i] = new
+"""
+
 def solverExclusion(rows, squares):
     # updates rows based on child input
     new_rows = rows
     col_a, col_b, col_c, col_d, col_e, col_f, col_g, col_h, col_i = [], [], [], [], [], [], [], [], []
     new_cols = [col_a, col_b, col_c, col_d, col_e, col_f, col_g, col_h, col_i]
+
     # updates columns
     for i in range(9):
         for j in new_rows:
