@@ -1,7 +1,13 @@
 Are Camels good at solving sudoko puzzles? The Camel uses brute force...
 Does the number of humps influence solving power? The Dromedary is faster than the Camel since it uses heuristics 
 and turns to brute force as sone as his heuristics show no results. So, one hump is faster than two humps...
-Oh, but they both use the helper file.
+Oh, but they both use the same helper file.
 
 v0.1
 Although both still make no use of squares... How 'bout that.
+
+v0.11
+Added an Echidna that is more object oriented. It also users more list comprehensions.
+Brute force Echidna performs better on some boards, but not on all. It is easily possible to make more complex solving algorithms
+due to the simpler structure. Each cell contains all relevant information.
+An Echidna has a lot of spikes, and the program has a lot of cells (if you consider 81 to be many).
