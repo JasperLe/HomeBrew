@@ -20,3 +20,26 @@ Board 5
 [5, 4, 7, 1, 2, 9, 3, 8, 6]
 [2, 6, 1, 3, 7, 8, 9, 4, 5]
 
+TIMES:
+Camel (1st list based) Brute Force                         
+-------------------------------------------------
+After 200k still no result (took about 2 minutes)|
+------------------------------------------------|
+
+Dromedary (2th list based) Exclusion -> Brute Force
+-------------------------------------------------
+Time elapsed: 0 seconds and 891000 microseconds. |
+Loops:  3044                                      |
+------------------------------------------------|
+
+Echidna (1st object based) Brute Force
+-------------------------------------------------
+Time elapsed: 130 seconds and 674000 microseconds.|
+Nodes visited 20179                              |
+------------------------------------------------|
+
+Rhinoceros (2th object based) Score Function
+-------------------------------------------------
+Time elapsed: 1 seconds and 359000 microseconds.|
+Nodes visited 76                                |
+------------------------------------------------|
