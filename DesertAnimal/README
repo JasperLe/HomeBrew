@@ -11,3 +11,7 @@ Added an Echidna that is more object oriented. It also uses more list comprehens
 Brute force Echidna performs better on some boards, but not on all. It is easily possible to make more complex solving algorithms
 due to the simpler structure. Each cell contains all relevant information.
 An Echidna has a lot of spikes, and the program has a lot of cells (if you consider 81 to be many).
+
+v0.12
+Added a Rhinoceros that actually solves sudokus very effectively. Visits less nodes than the other animals but visiting each node takes longer.
+Surprisingly, this Rhinoceros is as fast as a Dromedary but takes a much shorter path to his destination.
