@@ -38,8 +38,8 @@ def main():
     smtpObj.login(email, password)
     for info in infotable:
         print 'sending email...'
-        smtpObj.sendmail(email, info[1], 'Subject: %s\nHey %s,\n Volgens de borrellijst heb je nog $%s schuld'
-                         % (subject, info[0], info[2]))
+        smtpObj.sendmail(email, info[1], 'Subject: %s\nHey %s,\n Volgens de borrellijst heb je nog $%s schuld.\n'
+                                         'Met vriendelijke groet,\nJasper' % (subject, info[0], info[2]))
         print 'email send'
     smtpObj.quit()
     print 'Done'
