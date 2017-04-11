@@ -6,6 +6,9 @@ PaperBoy is a script that uses an excel sheet with info to send emails to people
 import smtplib
 import csv
 
+"""
+Loads a csv file and appends each row to a list to create an infotable
+"""
 def load():
     infotable = []
     with open('Data.csv', 'r') as csvfile:
@@ -18,6 +21,9 @@ def load():
         print 'Data loaded'
     return infotable
 
+"""
+Uses an infotable to send emails. Asks for email to use, password and subject.
+"""
 def main():
     infotable = load()
     while True:
@@ -39,7 +45,7 @@ def main():
     for info in infotable:
         print 'sending email...'
         smtpObj.sendmail(email, info[1], 'Subject: %s\nHey %s,\n Volgens de borrellijst heb je nog $%s schuld.\n'
-                                         'Met vriendelijke groet,\nJasper' % (subject, info[0], info[2]))
+                                         'Met vriendelijke groet,\nXxX' % (subject, info[0], info[2]))
         print 'email send'
     smtpObj.quit()
     print 'Done'
