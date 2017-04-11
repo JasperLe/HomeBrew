@@ -9,22 +9,24 @@ import csv
 def load():
     infotable = []
     with open('Data.csv', 'r') as csvfile:
+        print 'Data opened'
         info = csv.reader(csvfile, delimiter=',')
         for row in info:
             infotable.append(row)
         print infotable
         csvfile.close()
+        print 'Data loaded'
     return infotable
 
 def main():
     infotable = load()
     while True:
         print 'Do you use:\nA) Gmail\nB) Outlook'
-        mailprovider = str(raw_input())
-        if mailprovider == 'A':
+        mailProvider = str(raw_input())
+        if mailProvider == 'A':
             server = 'smtp.gmail.com'
             break
-        elif mailprovider == 'B':
+        elif mailProvider == 'B':
             server = 'smtp-mail.outlook.com'
             break
     email = str(raw_input('Email adress: '))
@@ -36,7 +38,8 @@ def main():
     smtpObj.login(email, password)
     for info in infotable:
         print 'sending email...'
-        smtpObj.sendmail(email, info[1], 'Subject: %s\nHey %s, you have $%s debt' % (subject, info[0], info[2]))
+        smtpObj.sendmail(email, info[1], 'Subject: %s\nHey %s,\n Volgens de borrellijst heb je nog $%s schuld'
+                         % (subject, info[0], info[2]))
         print 'email send'
     smtpObj.quit()
     print 'Done'
