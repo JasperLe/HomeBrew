@@ -1,1 +1,3 @@
 An Automated Stock Trader build in a OOP (and a bit of method) fashion.
+Also contains a DataBase Update script that updates and uses offline csv files
+to calculate the MAVG data consequently inserted in the sql table.
