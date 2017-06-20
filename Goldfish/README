@@ -1,0 +1,3 @@
+BoggleFish is a program that allows the user to enter letters, a depth and simply press solve.
+It will output all valid English words with a max length of depth+1 in the text field.
+Moreover, it outputs the score and time taken to find the words.
