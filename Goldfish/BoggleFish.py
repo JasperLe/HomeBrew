@@ -48,8 +48,6 @@ def score(words):
             points += 5
         elif length >= 8:
             points += 11
-        else:
-            points += 0
     return points
 
 
@@ -169,8 +167,8 @@ class Board(object):
                                 words.add(word)
         end_time = datetime.datetime.now()
         elapsed = end_time - start_time
-        max_score = score(words)
         text = [word for word in words if len(word) >= 3]
+        max_score = score(words)
         return text, elapsed, max_score
 
 """
